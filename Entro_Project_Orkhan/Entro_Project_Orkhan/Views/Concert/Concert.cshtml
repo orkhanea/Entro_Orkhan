@@ -1,0 +1,55 @@
+﻿@model List<Concert>
+@{ ViewData["Title"] = "Concerts Page"; }
+
+<div class="backgro_mh">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="heding">
+                    <h2>@ViewBag.BannerTitle</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- upcoming -->
+@{ foreach (var item in Model)
+    {
+        if (item.Id == 1)
+        {
+
+
+
+            <div id="upcoming" class="upcoming">
+                <div class="container-fluid padding_left3">
+                    <div class="row display_boxflex">
+                        <div class="col-xl-5 col-lg-5 col-md-5 col-sm-12">
+                            <div class="box_text">
+                                <div class="titlepage">
+                                    <h2>@item.Title</h2>
+                                </div>
+                                <p>@item.Text</p>
+                                <a href="Javascript:void(0)">Read More</a>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-7 col-lg-7 col-md-7 col-sm-12 border_right">
+                            <div class="upcomimg">
+                                @foreach (var image in item.ConcertImage)
+                                {
+                                    if (item.Id == image.Id)
+                                    {
+
+                                        <figure><img src="~/images/@image.Image" alt="#" /></figure>
+                                    }
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+}
+<!-- end upcoming -->

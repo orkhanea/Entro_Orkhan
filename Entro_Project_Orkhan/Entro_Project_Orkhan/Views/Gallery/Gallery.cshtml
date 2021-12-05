@@ -1,0 +1,55 @@
+﻿@model List<Gallery>
+@{ ViewData["Title"] = "Gallery Page"; }
+
+<div class="backgro_mh">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="heding">
+                    <h2>@ViewBag.BannerTitle</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="gallery" class="Gallery">
+    <div class="container">
+        <div class="row display_boxflex">
+            <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12">
+                <div class="row">
+                    @{ foreach (var item in Model)
+                        {
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 margi_bott">
+                                <div class="Gallery_img">
+                                    <figure><img src="~/images/@item.Image" alt="#" /></figure>
+                                </div>
+                                <div class="hover_box">
+
+                                    <ul class="icon_hu">
+                                        <h3>@item.Title</h3>
+                                        <li><a href="@item.Link1"><img src="~/icon/h.png" alt="#" /></a></li>
+                                        <li><a href="@item.Link2"><img src="~/icon/h.png" alt="#" /></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        }}
+
+
+                </div>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                <div class="Gallery_text">
+                    <div class="titlepage">
+                        <h2>Gallery</h2>
+                    </div>
+                    <p>@TempData["GalleryText"]</p>
+                    <a href="Javascript:void(0)">Read More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- end Gallery -->

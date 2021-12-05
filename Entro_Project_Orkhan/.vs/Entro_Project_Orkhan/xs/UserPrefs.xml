@@ -1,0 +1,30 @@
+﻿<Properties StartupConfiguration="{D3C2F751-4FEB-4E95-876E-8A3DF1A23777}|Default">
+  <MonoDevelop.Ide.ItemProperties.Entro__Project__Orkhan PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Entro_Project_Orkhan/appsettings.json">
+    <Files>
+      <File FileName="Entro_Project_Orkhan/appsettings.json" Line="11" Column="33" />
+      <File FileName="Entro_Project_Orkhan/Data/AppDbContext.cs" Line="27" Column="1" />
+      <File FileName="Entro_Project_Orkhan/Program.cs" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Entro_Project_Orkhan" expanded="True">
+            <Node name="Entro_Project_Orkhan" expanded="True">
+              <Node name="Dependencies" expanded="True" />
+              <Node name="Data" expanded="True" />
+              <Node name="Models" expanded="True" />
+              <Node name="appsettings.json" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
