@@ -40,7 +40,7 @@
     <!-- header -->
     <header>
         <!-- header inner -->
-        <header class="@(ViewBag.isHomePage == true ? "header-top":"" )" style="@(ViewBag.isHomePage == true ? "background:url(../images/banner2.jpg)":"")">
+        <header class="@(ViewBag.isHomePage == true ? "header-top":"" )" style="@(ViewBag.isHomePage == true ? "background:url(../images/banner2.jpg); background-size: 100% 100%; background-repeat: no-repeat;" : "")">
             <div class="header">
                 <div class="container">
                     <div class="row">
@@ -48,7 +48,7 @@
                             <div class="full">
                                 <div class="center-desk">
                                     <div class="logo">
-                                        <a href="index.html"><img src="~/images/@ViewBag.Logo" alt="#" /></a>
+                                        <a asp-controller="Home" asp-action="index"><img src="~/images/@ViewBag.Logo" alt="#" /></a>
                                     </div>
                                 </div>
                             </div>
@@ -143,10 +143,13 @@
                                     
                                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 ">
                                         <ul class="social_link">
-                                            <li><a href="@ViewBag.FacebookLink"><i class="@ViewBag.FacebookIcon" aria-hidden="true"></i></a></li>
-                                            <li><a href="@ViewBag.TwitterLink"><i class="@ViewBag.TwitterIcon" aria-hidden="true"></i></a></li>
-                                            <li><a href="@ViewBag.LinkedinLink"><i class="@ViewBag.LinkedinIcon" aria-hidden="true"></i></a></li>
-                                            <li><a href="@ViewBag.InstagramLink"><i class="@ViewBag.InstagramIcon" aria-hidden="true"></i></a></li>
+                                            @{
+                                                IEnumerable<Social> Socials = ViewData["Socials"] as IEnumerable<Social>;
+                                                foreach (var item in Socials)
+                                                {
+                                                    <li><a href="@item.Link"><i class="@item.Icon" aria-hidden="true"></i></a></li>
+                                                }
+                                            }
                                         </ul>
                                     </div>
                                 </div>

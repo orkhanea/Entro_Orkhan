@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Entro_Project_Orkhan.Data;
 using Entro_Project_Orkhan.Models;
+using Entro_Project_Orkhan.ViewModel;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
@@ -33,36 +34,19 @@ namespace Entro_Project_Orkhan.Controllers
                 ViewBag.CopyrightLink = item.CopyrightLink;
                 ViewBag.Copyright = item.Copyright;
             }
+           
+            List<Concert> concert = _context.Concerts.ToList();
+            List<ConcertImage> concertImage = _context.ConcertImages.ToList();
+            VmModel fullconcert = new VmModel();
+            fullconcert.concert = concert;
+            fullconcert.concertImage = concertImage;
 
-            foreach (var item in _context.Socials)
-            {
-                if (item.Id == 1)
-                {
-                    ViewBag.Facebook = item.Name;
-                    ViewBag.FacebookIcon = item.Icon;
-                    ViewBag.FacebookLink = item.Link;
-                }
-                if (item.Id == 2)
-                {
-                    ViewBag.Twitter = item.Name;
-                    ViewBag.TwitterIcon = item.Icon;
-                    ViewBag.TwitterLink = item.Link;
-                }
-                if (item.Id == 3)
-                {
-                    ViewBag.Linkedin = item.Name;
-                    ViewBag.LinkedinIcon = item.Icon;
-                    ViewBag.LinkedinLink = item.Link;
-                }
-                if (item.Id == 4)
-                {
-                    ViewBag.Instagram = item.Name;
-                    ViewBag.InstagramIcon = item.Icon;
-                    ViewBag.InstagramLink = item.Link;
-                }
-
-
-            }
+            ViewData["Concert"] = fullconcert.concert;
+            ViewData["ConcertImage"] = fullconcert.concertImage;
+            ViewData["Socials"] = _context.Socials;
+            ViewData["AboutUs"] = _context.Abouts;
+            ViewData["Gallery"] = _context.Galleries;
+            ViewData["Slider"] = _context.Sliders;
             List<Setting> setting = _context.Settings.ToList();
 
             return View(setting);

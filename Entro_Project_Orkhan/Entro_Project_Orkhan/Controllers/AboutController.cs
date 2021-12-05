@@ -33,35 +33,7 @@ namespace Entro_Project_Orkhan.Controllers
                 ViewBag.Copyright = item.Copyright;
             }
 
-            foreach (var item in _context.Socials)
-            {
-                if (item.Id == 1)
-                {
-                    ViewBag.Facebook = item.Name;
-                    ViewBag.FacebookIcon = item.Icon;
-                    ViewBag.FacebookLink = item.Link;
-                }
-                if (item.Id == 2)
-                {
-                    ViewBag.Twitter = item.Name;
-                    ViewBag.TwitterIcon = item.Icon;
-                    ViewBag.TwitterLink = item.Link;
-                }
-                if (item.Id == 3)
-                {
-                    ViewBag.Linkedin = item.Name;
-                    ViewBag.LinkedinIcon = item.Icon;
-                    ViewBag.LinkedinLink = item.Link;
-                }
-                if (item.Id == 4)
-                {
-                    ViewBag.Instagram = item.Name;
-                    ViewBag.InstagramIcon = item.Icon;
-                    ViewBag.InstagramLink = item.Link;
-                }
-
-
-            }
+            ViewData["Socials"] = _context.Socials;
 
             List<AboutUs> abouts = _context.Abouts.ToList();
             return View(abouts);
